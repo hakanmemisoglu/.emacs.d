@@ -36,6 +36,13 @@
   (exec-path-from-shell-initialize)
   )
 
+;; Undo tree
+(use-package undo-tree
+  :init
+  (undo-tree-mode)
+  )
+
+;; Project management
 (use-package projectile
   :config
   (projectile-mode)
@@ -74,10 +81,13 @@
 (use-package helm
   :diminish helm-mode
   :init
-  (progn
-    (require 'helm-config)
-    (setq helm-quick-update t)
-    (helm-mode))
+  (require 'helm-config)
+  (setq helm-quick-update t)
+  (helm-mode)
+  (use-package helm-projectile
+    :config
+    (helm-projectile-on)
+    )
   :bind
   (("C-x C-b" . helm-buffers-list)
    ("C-x b" . helm-buffers-list)
@@ -138,7 +148,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (projectile magit exec-path-from-shell go-eldoc flycheck company-go company-statistics company-mode company yaml-mode go-dlv smooth-scrolling linum-mode doom-themes helm use-package))))
+    (helm-projectile undo-tree projectile magit exec-path-from-shell go-eldoc flycheck company-go company-statistics company-mode company yaml-mode go-dlv smooth-scrolling linum-mode doom-themes helm use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
