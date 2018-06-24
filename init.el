@@ -36,6 +36,11 @@
   (exec-path-from-shell-initialize)
   )
 
+(use-package magit
+  :bind
+  ("C-x g" . magit-status)
+  )
+
 ;; Linum mode for linenumbers
 (use-package linum
   :init
@@ -128,7 +133,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (exec-path-from-shell go-eldoc flycheck company-go company-statistics company-mode company yaml-mode go-dlv smooth-scrolling linum-mode doom-themes helm use-package))))
+    (magit exec-path-from-shell go-eldoc flycheck company-go company-statistics company-mode company yaml-mode go-dlv smooth-scrolling linum-mode doom-themes helm use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
